@@ -16,3 +16,47 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/about', function () {
+    return "
+        <div><h3>About me</h3>
+        <a href='" . route('index') . "'>Posts</a>
+        </div>
+        ";
+})->name('about');
+
+
+Route::group(['prefix'=>'posts','as'=>'posts.'], function () {
+    Route::get('/', function () {
+        return "
+        <div><h3>My posts</h3>
+        <a href='" . route('posts.show', ['id' => 1]) . "'>Post1</a>
+        <a href='" . route('posts.show', ['id' => 2]) . "'>Post2</a>
+        <a href='" . route('posts.show', ['id' => 3]) . "'>Post3</a>
+        <a href='" . route('posts.show', ['id' => 4]) . "'>Post4</a>
+        </div>
+        ";
+    })->name('index');
+
+
+    Route::get('/{id}', function () {
+        return "
+        <div><h3>My posts</h3>
+        <a href='" . route('posts.index') . "'>Posts</a>
+        </div>
+        ";
+    })->name('show');
+
+    Route::post('/', function () {
+        return 'My posts';
+    });
+
+});
+
+/*Route::match(['get', 'post'],'/posts',function (){
+    return 'My posts';
+});
+
+Route::get('/posts/{id}/comments/{comment?}', function ($id, $comment='all') {
+    return 'My posts:'.$id.'Comments:'.$comment;
+})->where(['id'=>'[0-9]+','comment'=>'[0-9]+']);*/
