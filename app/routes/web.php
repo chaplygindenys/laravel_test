@@ -16,7 +16,25 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get(    '/things',     'ThingsControllers@index');
+Route::get(    '/things/{id}','ThingsControllers@show');
+Route::post(   '/things',     'ThingsControllers@stroe');
+Route::put(    '/things',     'ThingsControllers@update');
+Route::delete( '/things',     'ThingsControllers@destroy');
 
+Route::get('/js_frameworks/method', 'JSFrameworksController@method')->name( 'js_frameworks.method ');
+
+
+Route::resources([
+    '/js_frameworks'=>'JSFrameworksController',
+    '/php_frameworks'=>'PHPFrameworksController'
+]);
+/*Route::resource('/js_frameworks','JSFrameworksController');
+Route::resource('/php_frameworks','PHPFrameworksController');*/
+
+
+
+/*
 Route::get('/about', function () {
     return "
         <div><h3>About me</h3>
@@ -51,7 +69,7 @@ Route::group(['prefix'=>'posts','as'=>'posts.'], function () {
         return 'My posts';
     });
 
-});
+});*/
 
 /*Route::match(['get', 'post'],'/posts',function (){
     return 'My posts';
