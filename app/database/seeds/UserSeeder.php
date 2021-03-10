@@ -12,13 +12,13 @@ class UserSeeder extends Seeder
     public function run()
     {
       \Illuminate\Support\Facades\DB::table('users')->insert([
-          'name'       =>'Den',
-          'first_name' =>'ch',
-          'last_name'  =>'ly',
-          'role'       =>'admin',
+          'name'       =>'Den1',
+          'first_name' =>'ch1',
+          'last_name'  =>'ly1',
+          'role'       =>'user',
           'gender'     =>'male',
-          'email'      =>'admin@test.com',
-          'password'   =>bcrypt('admin@test.com'),
+          'email'      =>'admin1@test.com',
+          'password'   =>bcrypt('admin1@test.com'),
       ]);
     }
 }

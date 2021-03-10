@@ -14,9 +14,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+
+    dd('hello world2');
     return view('welcome');
 });
-Route::get(    '/things',     'ThingsControllers@index');
+/*Route::get(    '/things',     'ThingsControllers@index');
 Route::get(    '/things/{id}','ThingsControllers@show');
 Route::post(   '/things',     'ThingsControllers@stroe');
 Route::put(    '/things',     'ThingsControllers@update');
@@ -28,7 +30,7 @@ Route::get('/js_frameworks/method', 'JSFrameworksController@method')->name( 'js_
 Route::resources([
     '/js_frameworks'=>'JSFrameworksController',
     '/php_frameworks'=>'PHPFrameworksController'
-]);
+]);*/
 /*Route::resource('/js_frameworks','JSFrameworksController');
 Route::resource('/php_frameworks','PHPFrameworksController');*/
 
